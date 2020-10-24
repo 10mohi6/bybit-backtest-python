@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="bybit-backtest",
-    version="0.1.0",
+    version="0.1.1",
     description="bybit-backtest is a python library \
         for backtest with bybit fx trade on Python 3.6 and above.",
     long_description=open("README.md").read(),
