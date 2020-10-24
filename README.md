@@ -76,7 +76,7 @@ average return          0.001
 stop loss            1779.000
 take profit            93.000
 ```
-![backtest.png](https://raw.githubusercontent.com/10mohi6/bybit-backtest-python/master/tests/backtest.png)
+![backtest.png](https://raw.githubusercontent.com/10mohi6/bybit-backtest-python/main/tests/backtest.png)
 
 
 ## Supported indicators
