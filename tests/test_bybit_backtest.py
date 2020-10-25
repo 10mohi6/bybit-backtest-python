@@ -21,8 +21,8 @@ def scope_module():
     yield MyBacktest(
         symbol="BTCUSD",
         sqlite_file_name="backtest.sqlite3",
-        from_datetime="2020-10-01",
-        to_datetime="2020-10-10",
+        from_date="2020-10-01",
+        to_date="2020-10-10",
         interval="1T",
         download_data_dir="data",
     )

@@ -2,13 +2,14 @@
 
 [![PyPI](https://img.shields.io/pypi/v/bybit-backtest)](https://pypi.org/project/bybit-backtest/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![codecov](https://codecov.io/gh/10mohi6/bybit-backtest-python/branch/master/graph/badge.svg)](https://codecov.io/gh/10mohi6/bybit-backtest-python)
-[![Build Status](https://travis-ci.com/10mohi6/bybit-backtest-python.svg?branch=master)](https://travis-ci.com/10mohi6/bybit-backtest-python)
+[![codecov](https://codecov.io/gh/10mohi6/bybit-backtest-python/branch/main/graph/badge.svg?token=ZFgiyy2cc2)](undefined)
+[![Build Status](https://travis-ci.com/10mohi6/bybit-backtest-python.svg?branch=main)](https://travis-ci.com/10mohi6/bybit-backtest-python)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/bybit-backtest)](https://pypi.org/project/bybit-backtest/)
 [![Downloads](https://pepy.tech/badge/bybit-backtest)](https://pepy.tech/project/bybit-backtest)
 
 bybit-backtest is a python library for backtest with bybit fx trade on Python 3.6 and above.
 
+backtest data from [here](https://public.bybit.com/trading/)
 
 ## Installation
 
@@ -57,8 +58,8 @@ class MyBacktest(Backtest):
 MyBacktest(
     symbol="BTCUSD", # default=BTCUSD
     sqlite_file_name="backtest.sqlite3", # (default=backtest.sqlite3)
-    from_datetime="2020-04-01", # (default="")
-    to_datetime="2020-10-25", # (default="")
+    from_date="2020-04-01", # (default="")
+    to_date="2020-10-25", # (default="")
     interval="1T", # 5-60S(second), 1-60T(minute), 1-24H(hour) (default=1T)
     download_data_dir="data", # download data directory (default=data)
 ).run("backtest.png")

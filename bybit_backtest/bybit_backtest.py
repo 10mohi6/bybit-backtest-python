@@ -17,8 +17,8 @@ class Backtest(object):
         *,
         symbol: str = "BTCUSD",
         sqlite_file_name: str = "backtest.sqlite3",
-        from_datetime: str = "",
-        to_datetime: str = "",
+        from_date: str = "",
+        to_date: str = "",
         qty: float = 0.001,
         interval: str = "1T",  # 5-60S(second), 1-60T(minute), 1-24H(hour)
         download_data_dir: str = "data",
@@ -33,8 +33,8 @@ class Backtest(object):
         ) = self.sell_entry = self.sell_exit = pd.DataFrame()
         self.symbol = symbol
         self.engine = create_engine(f"sqlite:///{sqlite_file_name}")
-        self.from_datetime = from_datetime
-        self.to_datetime = to_datetime
+        self.from_date = from_date
+        self.to_date = to_date
         if not os.path.exists(self.download_data_dir):
             os.mkdir(self.download_data_dir)
 
@@ -50,15 +50,9 @@ class Backtest(object):
         soup = BeautifulSoup(res.text, "lxml")
         for link in soup.find_all("a"):
             name = link.get("href")
-            if (
-                self.from_datetime != ""
-                and f"{self.symbol}{self.from_datetime}.csv.gz" > name
-            ):
+            if self.from_date != "" and f"{self.symbol}{self.from_date}.csv.gz" > name:
                 continue
-            if (
-                self.to_datetime != ""
-                and f"{self.symbol}{self.to_datetime}.csv.gz" < name
-            ):
+            if self.to_date != "" and f"{self.symbol}{self.to_date}.csv.gz" < name:
                 continue
             fname = f"{self.download_data_dir}/{name}"
             if os.path.exists(fname):
@@ -100,10 +94,10 @@ class Backtest(object):
     def _create_candles(self) -> None:
         sql = ""
         where = []
-        if self.from_datetime != "":
-            where.append(f" T >= '{self.from_datetime} 00:00:00' ")
-        if self.to_datetime != "":
-            where.append(f" T <= '{self.to_datetime} 00:00:00' ")
+        if self.from_date != "":
+            where.append(f" T >= '{self.from_date} 00:00:00' ")
+        if self.to_date != "":
+            where.append(f" T <= '{self.to_date} 00:00:00' ")
         if len(where) > 0:
             sql = f"WHERE{'and'.join(where)}"
         self.df = pd.read_sql_query(
