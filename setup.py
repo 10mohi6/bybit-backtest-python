@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="bybit-backtest",
-    version="0.1.2",
+    version="0.1.3",
     description="bybit-backtest is a python library \
         for backtest with bybit fx trade on Python 3.6 and above.",
     long_description=open("README.md").read(),
@@ -20,6 +20,7 @@ setup(
         "matplotlib",
         "beautifulsoup4",
         "SQLAlchemy",
+        "lxml",
     ],
     python_requires=">=3.6.0",
     classifiers=[
