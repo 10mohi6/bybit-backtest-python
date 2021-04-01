@@ -57,8 +57,10 @@ class Backtest(object):
             fname = f"{self.download_data_dir}/{name}"
             if os.path.exists(fname):
                 continue
-            urllib.request.urlretrieve(f"{data_url}{name}", fname)
-            print(f"download {name}")
+            data = urllib.request.urlopen(f"{data_url}{name}").read()
+            with open(fname, mode="wb") as f:
+                f.write(data)
+            print(f"Downloaded {name}")
             json = []
             with gzip.open(fname, mode="rt") as fp:
                 for index, line in enumerate(fp.read().split("\n")):
