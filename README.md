@@ -7,7 +7,7 @@
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/bybit-backtest)](https://pypi.org/project/bybit-backtest/)
 [![Downloads](https://pepy.tech/badge/bybit-backtest)](https://pepy.tech/project/bybit-backtest)
 
-bybit-backtest is a python library for backtest with bybit fx trade on Python 3.6 and above.
+bybit-backtest is a python library for backtest with bybit fx trade on Python 3.7 and above.
 
 backtest data from [here](https://public.bybit.com/trading/)
 
